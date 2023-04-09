@@ -41,11 +41,11 @@ jobs:
       - name: create artifact
         uses: actions/upload-artifact@v3
         with:
-          name: file
-          path: file.txt
+          name: logs
+          path: logs.txt
       -  name: send files over telegram
          run: |
-          curl -F document=@file.txt -F chat_id=${{ secrets.TELEGRAM_CHAT_ID }} https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendDocument
+          curl -F document=@logs.txt -F chat_id=${{ secrets.TELEGRAM_CHAT_ID }} https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendDocument
       
       
       
