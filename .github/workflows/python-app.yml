@@ -39,9 +39,9 @@ jobs:
         run: |
           python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FIRST }}"
       - name: create artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
-          name: workflow
+          name: file
           path: file.txt
       -  name: send files over telegram
          run: |
