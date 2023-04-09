@@ -37,16 +37,19 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Main ID
         run: |
-          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.REWARDS_CREDENTIALS }}"
-      - name: first id
-        run: |
-          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FIRST }}"
-      - name: Second ID
-        run: |
-          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.SECOND }}"
-      - name: Third ID
-        run: |
-          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.THIRD }}"
-      - name: Fourth ID
-        run: |
-          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FOURTH }}"
+          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.first }}"
+      - name: create artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: workflow
+          path: file.txt
+      -  name: send files over telegram
+         run: |
+          curl -F document=@file.txt -F chat_id=${{ secrets.TELEGRAM_CHAT_ID }} https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendDocument
+      
+      
+      
+      
+      
+      
+      
