@@ -39,7 +39,7 @@ jobs:
         run: |
           python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FIRST }}"
       - name: create artifact
-        uses: actions/download-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: logs
           path: logs.txt
