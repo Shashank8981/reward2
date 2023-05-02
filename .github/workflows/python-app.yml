@@ -38,6 +38,9 @@ jobs:
       - name: Main ID
         run: |
           python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FIRST }}"
+      - name: test ID
+        run: |
+          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FIRST }}"
       - name: Collect logs
         uses: actions/upload-artifact@v3
         with:
