@@ -35,15 +35,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-   #   - name: Main ID
-   #     run: |
-   #       python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FIRST }}" >logs_1.txt
       - name: Main ID
         run: |
-          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FIRS }}" >logs_1.txt
-      - name: Mai ID
-        run: |
-          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FIR }}" >logs_2.txt
+          python MicrosoftRewardsBot.py --headless --fast --emailalerts --accounts "${{ secrets.FIRST }}" >logs_1.txt
+      
       
       
       - name: Collect logs
